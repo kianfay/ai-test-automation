@@ -10,7 +10,7 @@ async function main() {
 
         // Define your product context
         const productContext = `
-            Cindi.ai is an AI-powered platform that helps users manage and automate their workflows.
+            Cindi.ai is an AI-powered platform that helps users manage and automate their workflows. The URL to login is https://app.cindi.ai/auth/login
             
             Key Features:
             - User authentication and login
@@ -25,18 +25,26 @@ async function main() {
             - Managing existing workflows
             - Configuring AI automation settings
             - Updating user profile information
+
+            The only user flows I want tested are the following 2:
+            - User opens the login page, tries to login with some dummy credentials, and gets some visual feedback that the credentials are invalid.
+            - User now tries to enter correct credentials, clicks login, and is redirected to the dashboard [email: kianfay@gmail.com, password: password], and the test wait for the dashboard to appear
         `;
 
-        // Analyze the product and generate test scenarios
-        console.log('Analyzing product and generating test scenarios...');
-        const scenarios = await automation.analyzeProduct(
+        // Analyze the product and generate a single test scenario
+        console.log('Analyzing product and generating test scenario...');
+        const scenario = await automation.analyzeProduct(
             process.env.BASE_URL || 'https://app.cindi.ai/auth/login',
             productContext
         );
 
-        // Run the generated tests
-        console.log('Running generated tests...');
-        await automation.generateAndRunTests(scenarios);
+        // Execute the scenario and record the results
+        console.log('Executing and recording scenario...');
+        const recordedScenario = await automation.executeAndRecordScenario(scenario);
+
+        // Log the final scenario with all recorded information
+        console.log('\nFinal recorded scenario:');
+        console.log(JSON.stringify(recordedScenario, null, 2));
 
     } catch (error) {
         console.error('Error during test automation:', error);
