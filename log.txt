@@ -1,0 +1,937 @@
+npm warn cli npm v10.9.2 does not support Node.js v16.17.1. This version of npm supports the following node versions: `^18.17.0 || >=20.5.0`. You can find the latest version at https://nodejs.org/.
+
+> ai-test-automation@1.0.0 start
+> ts-node src/run-tests.ts
+
+Initializing test automation...
+Analyzing product and generating test scenarios...
+```json
+{
+  "scenarios": [
+    {
+      "name": "Successful Login",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter valid username/email",
+        "Enter valid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "User is redirected to the dashboard.",
+        "Dashboard with workflow overview is displayed.",
+        "User session is established and maintained."
+      ]
+    },
+    {
+      "name": "Login with Invalid Username",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter invalid username/email",
+        "Enter valid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "Error message is displayed: 'Invalid username or password'.",
+        "User remains on the login page.",
+        "No redirection occurs."
+      ]
+    },
+    {
+      "name": "Login with Invalid Password",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter valid username/email",
+        "Enter invalid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "Error message is displayed: 'Invalid username or password'.",
+        "User remains on the login page.",
+        "No redirection occurs."
+      ]
+    },
+    {
+      "name": "Login with Empty Username",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Leave username/email field empty",
+        "Enter valid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "Error message is displayed: 'Username/Email is required'.",
+        "User remains on the login page.",
+        "Login button is disabled or error message appears inline."
+      ]
+    },
+    {
+      "name": "Login with Empty Password",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter valid username/email",
+        "Leave password field empty",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "Error message is displayed: 'Password is required'.",
+        "User remains on the login page.",
+        "Login button is disabled or error message appears inline."
+      ]
+    },
+    {
+      "name": "Login with Empty Username and Password",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Leave username/email field empty",
+        "Leave password field empty",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "Error messages are displayed: 'Username/Email is required' and 'Password is required'.",
+        "User remains on the login page.",
+        "Login button is disabled or error messages appear inline."
+      ]
+    },
+    {
+      "name": "Check 'Remember Me' functionality",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter valid username/email",
+        "Enter valid password",
+        "Check 'Remember Me' checkbox",
+        "Click 'Login' button",
+        "Close browser",
+        "Open browser and navigate to https://app.cindi.ai/auth/login"
+      ],
+      "expectedResults": [
+        "User is redirected to the dashboard upon successful login.",
+        "User is automatically logged in when navigating back to the site.",
+        "Username/email may be pre-filled in the login form."
+      ]
+    },
+    {
+      "name": "Forgot Password Functionality",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Click 'Forgot Password' link",
+        "Enter registered email address",
+        "Click 'Reset Password' button"
+      ],
+      "expectedResults": [
+        "User is redirected to a 'Reset Password' page or message indicating an email has been sent.",
+        "Email with password reset instructions is sent to the provided email address.",
+        "User can successfully reset the password using the link in the email."
+      ]
+    },
+    {
+      "name": "Login with case sensitivity",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter username/email with incorrect casing (e.g., UsErNaMe instead of Username)",
+        "Enter valid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "Authentication should succeed or fail depending on if username is case-sensitive.",
+        "If case-sensitive: 'Invalid username or password' is displayed. Otherwise user is logged in.",
+        "User remains on the login page if login fails due to case sensitivity."
+      ]
+    }
+  ]
+}
+```
+Error during test automation: SyntaxError: Unexpected token ` in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at AITestAutomation.analyzeProduct (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:52:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async main (/Users/kianpeadar.fay/ai-test-automation/src/run-tests.ts:32:27)
+Cleaning up...
+➜  ai-test-automation npm start
+npm warn cli npm v10.9.2 does not support Node.js v16.17.1. This version of npm supports the following node versions: `^18.17.0 || >=20.5.0`. You can find the latest version at https://nodejs.org/.
+
+> ai-test-automation@1.0.0 start
+> ts-node src/run-tests.ts
+
+Initializing test automation...
+Analyzing product and generating test scenarios...
+Raw response: ```json
+{
+  "scenarios": [
+    {
+      "name": "Successful User Login",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter valid username",
+        "Enter valid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "User should be redirected to the dashboard.",
+        "User's username should be displayed on the dashboard.",
+        "Login activity should be logged."
+      ]
+    },
+    {
+      "name": "Failed Login with Invalid Credentials",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter invalid username",
+        "Enter invalid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "An error message should be displayed indicating invalid credentials.",
+        "User should remain on the login page.",
+        "No redirection should occur."
+      ]
+    },
+    {
+      "name": "Create a New Workflow",
+      "steps": [
+        "Login to the application",
+        "Navigate to the workflow creation page",
+        "Enter a workflow name",
+        "Define workflow steps",
+        "Configure AI automation settings (if applicable)",
+        "Save the workflow"
+      ],
+      "expectedResults": [
+        "The workflow should be saved successfully.",
+        "The workflow should be visible in the workflow list on the dashboard.",
+        "The workflow should be executable."
+      ]
+    },
+    {
+      "name": "Edit an Existing Workflow",
+      "steps": [
+        "Login to the application",
+        "Navigate to the workflow list on the dashboard",
+        "Select a workflow to edit",
+        "Modify workflow details (e.g., name, steps, automation settings)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "The workflow should be updated successfully.",
+        "The changes should be reflected in the workflow list on the dashboard.",
+        "The updated workflow should be executable."
+      ]
+    },
+    {
+      "name": "Update User Profile Information",
+      "steps": [
+        "Login to the application",
+        "Navigate to the user profile settings page",
+        "Modify profile information (e.g., name, email, password)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "The profile information should be updated successfully.",
+        "The changes should be reflected throughout the application.",
+        "User should receive a confirmation message (e.g., 'Profile updated successfully')."
+      ]
+    },
+    {
+      "name": "Forgot Password Functionality",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Click on 'Forgot Password' link",
+        "Enter the registered email address",
+        "Click on 'Reset Password' button"
+      ],
+      "expectedResults": [
+        "A password reset email should be sent to the provided email address.",
+        "User should receive a confirmation message on the page.",
+        "The email should contain a link to reset the password."
+      ]
+    },
+    {
+      "name": "AI Automation Configuration",
+      "steps": [
+        "Login to the application",
+        "Create or edit a workflow",
+        "Navigate to the AI automation settings for a specific task.",
+        "Configure automation rules and triggers",
+        "Save the automation settings."
+      ],
+      "expectedResults": [
+        "The automation settings should be saved successfully.",
+        "The AI automation should be triggered based on the configured rules.",
+        "The workflow should be automatically executed according to the automation settings."
+      ]
+    }
+  ]
+}
+```
+Cleaned response: {
+  "scenarios": [
+    {
+      "name": "Successful User Login",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter valid username",
+        "Enter valid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "User should be redirected to the dashboard.",
+        "User's username should be displayed on the dashboard.",
+        "Login activity should be logged."
+      ]
+    },
+    {
+      "name": "Failed Login with Invalid Credentials",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Enter invalid username",
+        "Enter invalid password",
+        "Click 'Login' button"
+      ],
+      "expectedResults": [
+        "An error message should be displayed indicating invalid credentials.",
+        "User should remain on the login page.",
+        "No redirection should occur."
+      ]
+    },
+    {
+      "name": "Create a New Workflow",
+      "steps": [
+        "Login to the application",
+        "Navigate to the workflow creation page",
+        "Enter a workflow name",
+        "Define workflow steps",
+        "Configure AI automation settings (if applicable)",
+        "Save the workflow"
+      ],
+      "expectedResults": [
+        "The workflow should be saved successfully.",
+        "The workflow should be visible in the workflow list on the dashboard.",
+        "The workflow should be executable."
+      ]
+    },
+    {
+      "name": "Edit an Existing Workflow",
+      "steps": [
+        "Login to the application",
+        "Navigate to the workflow list on the dashboard",
+        "Select a workflow to edit",
+        "Modify workflow details (e.g., name, steps, automation settings)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "The workflow should be updated successfully.",
+        "The changes should be reflected in the workflow list on the dashboard.",
+        "The updated workflow should be executable."
+      ]
+    },
+    {
+      "name": "Update User Profile Information",
+      "steps": [
+        "Login to the application",
+        "Navigate to the user profile settings page",
+        "Modify profile information (e.g., name, email, password)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "The profile information should be updated successfully.",
+        "The changes should be reflected throughout the application.",
+        "User should receive a confirmation message (e.g., 'Profile updated successfully')."
+      ]
+    },
+    {
+      "name": "Forgot Password Functionality",
+      "steps": [
+        "Navigate to https://app.cindi.ai/auth/login",
+        "Click on 'Forgot Password' link",
+        "Enter the registered email address",
+        "Click on 'Reset Password' button"
+      ],
+      "expectedResults": [
+        "A password reset email should be sent to the provided email address.",
+        "User should receive a confirmation message on the page.",
+        "The email should contain a link to reset the password."
+      ]
+    },
+    {
+      "name": "AI Automation Configuration",
+      "steps": [
+        "Login to the application",
+        "Create or edit a workflow",
+        "Navigate to the AI automation settings for a specific task.",
+        "Configure automation rules and triggers",
+        "Save the automation settings."
+      ],
+      "expectedResults": [
+        "The automation settings should be saved successfully.",
+        "The AI automation should be triggered based on the configured rules.",
+        "The workflow should be automatically executed according to the automation settings."
+      ]
+    }
+  ]
+}
+Running generated tests...
+Running scenario: Successful User Login
+Error during test automation: TypeError: "" is not a function
+    at eval (eval at executePlaywrightCode (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:96:5), <anonymous>:1:3)
+    at AITestAutomation.executePlaywrightCode (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:96:5)
+    at AITestAutomation.generateAndRunTests (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:80:20)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async main (/Users/kianpeadar.fay/ai-test-automation/src/run-tests.ts:39:9)
+Cleaning up...
+➜  ai-test-automation npm start
+npm warn cli npm v10.9.2 does not support Node.js v16.17.1. This version of npm supports the following node versions: `^18.17.0 || >=20.5.0`. You can find the latest version at https://nodejs.org/.
+
+> ai-test-automation@1.0.0 start
+> ts-node src/run-tests.ts
+
+Initializing test automation...
+Analyzing product and generating test scenarios...
+Error parsing response: GoogleGenerativeAIError: [503 Service Unavailable] The model is overloaded. Please try again later.
+    at makeRequest (/Users/kianpeadar.fay/ai-test-automation/node_modules/@google/generative-ai/dist/index.js:212:19)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async generateContent (/Users/kianpeadar.fay/ai-test-automation/node_modules/@google/generative-ai/dist/index.js:536:22)
+    at async AITestAutomation.analyzeProduct (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:53:22)
+    at async main (/Users/kianpeadar.fay/ai-test-automation/src/run-tests.ts:32:27)
+Error during test automation: GoogleGenerativeAIError: [503 Service Unavailable] The model is overloaded. Please try again later.
+    at makeRequest (/Users/kianpeadar.fay/ai-test-automation/node_modules/@google/generative-ai/dist/index.js:212:19)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async generateContent (/Users/kianpeadar.fay/ai-test-automation/node_modules/@google/generative-ai/dist/index.js:536:22)
+    at async AITestAutomation.analyzeProduct (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:53:22)
+    at async main (/Users/kianpeadar.fay/ai-test-automation/src/run-tests.ts:32:27)
+Cleaning up...
+➜  ai-test-automation npm start
+npm warn cli npm v10.9.2 does not support Node.js v16.17.1. This version of npm supports the following node versions: `^18.17.0 || >=20.5.0`. You can find the latest version at https://nodejs.org/.
+
+> ai-test-automation@1.0.0 start
+> ts-node src/run-tests.ts
+
+Initializing test automation...
+Analyzing product and generating test scenarios...
+Raw response: ```json
+{
+  "scenarios": [
+    {
+      "name": "Successful User Login",
+      "steps": [
+        "Navigate to the login page (https://app.cindi.ai/auth/login)",
+        "Enter valid username and password",
+        "Click on the 'Login' button"
+      ],
+      "expectedResults": [
+        "User should be redirected to the dashboard",
+        "Dashboard should display workflow overview information",
+        "User should be authenticated and session should be established"
+      ]
+    },
+    {
+      "name": "Failed Login with Invalid Credentials",
+      "steps": [
+        "Navigate to the login page (https://app.cindi.ai/auth/login)",
+        "Enter invalid username and/or password",
+        "Click on the 'Login' button"
+      ],
+      "expectedResults": [
+        "Error message should be displayed indicating invalid credentials",
+        "User should remain on the login page",
+        "User should not be authenticated"
+      ]
+    },
+    {
+      "name": "Successful Workflow Creation",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the workflow creation page",
+        "Enter workflow name and description",
+        "Define tasks for the workflow",
+        "Configure AI automation settings (if applicable)",
+        "Save the workflow"
+      ],
+      "expectedResults": [
+        "Workflow should be created successfully",
+        "Workflow should be visible in the workflow list on the dashboard",
+        "Confirmation message should be displayed to the user"
+      ]
+    },
+    {
+      "name": "Workflow Modification",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the workflow management page",
+        "Select a workflow to modify",
+        "Update workflow name, description, or tasks",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "Changes to the workflow should be saved successfully",
+        "Updated workflow details should be reflected in the workflow list",
+        "Confirmation message should be displayed to the user"
+      ]
+    },
+    {
+      "name": "User Profile Update",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the user profile page",
+        "Update user profile information (e.g., name, email, password)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "User profile information should be updated successfully",
+        "Updated information should be reflected in the user profile page",
+        "Confirmation message should be displayed to the user"
+      ]
+    },
+    {
+      "name": "AI Automation Configuration",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the workflow creation or management page",
+        "Select a workflow",
+        "Configure AI automation settings for a task (e.g., trigger conditions, actions)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "AI automation settings should be configured successfully",
+        "AI automation should be triggered based on the configured settings",
+        "Desired actions should be performed automatically by the AI"
+      ]
+    },
+    {
+      "name": "Logout Functionality",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Click on the 'Logout' button or link"
+      ],
+      "expectedResults": [
+        "User should be logged out of the application",
+        "User should be redirected to the login page",
+        "User session should be terminated"
+      ]
+    },
+    {
+      "name": "Check Workflow execution",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the dashboard",
+        "Check if the workflow is triggered based on conditions defined",
+        "Check if AI automation is working on the workflow after trigger"
+      ],
+      "expectedResults": [
+        "Workflow should be triggered based on condition defined",
+        "AI automation should execute after workflow triggers",
+        "Desired actions should be performed automatically by the AI"
+      ]
+    }
+  ]
+}
+```
+Cleaned response: {
+  "scenarios": [
+    {
+      "name": "Successful User Login",
+      "steps": [
+        "Navigate to the login page (https://app.cindi.ai/auth/login)",
+        "Enter valid username and password",
+        "Click on the 'Login' button"
+      ],
+      "expectedResults": [
+        "User should be redirected to the dashboard",
+        "Dashboard should display workflow overview information",
+        "User should be authenticated and session should be established"
+      ]
+    },
+    {
+      "name": "Failed Login with Invalid Credentials",
+      "steps": [
+        "Navigate to the login page (https://app.cindi.ai/auth/login)",
+        "Enter invalid username and/or password",
+        "Click on the 'Login' button"
+      ],
+      "expectedResults": [
+        "Error message should be displayed indicating invalid credentials",
+        "User should remain on the login page",
+        "User should not be authenticated"
+      ]
+    },
+    {
+      "name": "Successful Workflow Creation",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the workflow creation page",
+        "Enter workflow name and description",
+        "Define tasks for the workflow",
+        "Configure AI automation settings (if applicable)",
+        "Save the workflow"
+      ],
+      "expectedResults": [
+        "Workflow should be created successfully",
+        "Workflow should be visible in the workflow list on the dashboard",
+        "Confirmation message should be displayed to the user"
+      ]
+    },
+    {
+      "name": "Workflow Modification",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the workflow management page",
+        "Select a workflow to modify",
+        "Update workflow name, description, or tasks",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "Changes to the workflow should be saved successfully",
+        "Updated workflow details should be reflected in the workflow list",
+        "Confirmation message should be displayed to the user"
+      ]
+    },
+    {
+      "name": "User Profile Update",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the user profile page",
+        "Update user profile information (e.g., name, email, password)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "User profile information should be updated successfully",
+        "Updated information should be reflected in the user profile page",
+        "Confirmation message should be displayed to the user"
+      ]
+    },
+    {
+      "name": "AI Automation Configuration",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the workflow creation or management page",
+        "Select a workflow",
+        "Configure AI automation settings for a task (e.g., trigger conditions, actions)",
+        "Save the changes"
+      ],
+      "expectedResults": [
+        "AI automation settings should be configured successfully",
+        "AI automation should be triggered based on the configured settings",
+        "Desired actions should be performed automatically by the AI"
+      ]
+    },
+    {
+      "name": "Logout Functionality",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Click on the 'Logout' button or link"
+      ],
+      "expectedResults": [
+        "User should be logged out of the application",
+        "User should be redirected to the login page",
+        "User session should be terminated"
+      ]
+    },
+    {
+      "name": "Check Workflow execution",
+      "steps": [
+        "Login to the application with valid credentials",
+        "Navigate to the dashboard",
+        "Check if the workflow is triggered based on conditions defined",
+        "Check if AI automation is working on the workflow after trigger"
+      ],
+      "expectedResults": [
+        "Workflow should be triggered based on condition defined",
+        "AI automation should execute after workflow triggers",
+        "Desired actions should be performed automatically by the AI"
+      ]
+    }
+  ]
+}
+Running generated tests...
+Running scenario: Successful User Login
+Executing Playwright code: ```python
+from playwright.sync_api import sync_playwright
+
+def run(playwright):
+    browser = playwright.chromium.launch()
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto("https://app.cindi.ai/auth/login")
+
+    # ---------------------
+    context.close()
+    browser.close()
+
+
+with sync_playwright() as playwright:
+    run(playwright)
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def enter_valid_credentials(page: Page, username, password):
+    page.locator("#username").fill(username)
+    page.locator("#password").fill(password)
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def click_login_button(page: Page):
+    page.locator("text=Login").click()
+```
+
+Running scenario: Failed Login with Invalid Credentials
+Executing Playwright code: ```python
+from playwright.sync_api import sync_playwright
+
+def run(playwright):
+    browser = playwright.chromium.launch()
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto("https://app.cindi.ai/auth/login")
+
+    context.close()
+    browser.close()
+
+with sync_playwright() as playwright:
+    run(playwright)
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def enter_invalid_credentials(page: Page, username, password):
+    page.locator("#username").fill(username)
+    page.locator("#password").fill(password)
+    page.locator("#login-button").click()
+```
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def click_login_button(page: Page):
+    """Clicks on the 'Login' button."""
+    page.click("text=Login")
+```
+
+Running scenario: Successful Workflow Creation
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def login(page: Page, username, password):
+    """Logs in to the application with the given credentials."""
+    page.goto("/")  # Or whatever the login page URL is
+    page.fill("input[name='username']", username)
+    page.fill("input[name='password']", password)
+    page.click("button[type='submit']")
+    page.wait_for_load_state("networkidle")
+
+def test_login_success(page: Page):
+    login(page, "valid_username", "valid_password")
+    # Add assertions here to verify successful login
+    # Example:
+    # assert page.url == "https://example.com/dashboard"
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def navigate_to_workflow_creation_page(page: Page):
+  """Navigates to the workflow creation page."""
+  page.goto("/workflows/new")
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def enter_workflow_name_and_description(page: Page, workflow_name: str, workflow_description: str):
+    """Enters the workflow name and description in the respective fields."""
+
+    page.fill("#workflowName", workflow_name)
+    page.fill("#workflowDescription", workflow_description)
+```
+
+Executing Playwright code: ```python
+import playwright
+from playwright.sync_api import sync_playwright
+
+
+def define_tasks_for_workflow(page):
+    """Placeholder function for defining tasks.  Replace with actual Playwright code."""
+    print("Defining tasks for the workflow...")
+    # Example:  If it involves clicking a button:
+    # page.click("text=Define Tasks")
+    # Or, if it involves filling a form:
+    # page.fill("input[name='taskName']", "My Task")
+    pass
+```
+Executing Playwright code: ```python
+async def configure_ai_automation_settings(page):
+    """Configures AI automation settings if applicable.
+
+    Args:
+        page: The Playwright page object.
+    """
+    # Check if AI automation settings are present on the page.  Adjust selector as needed.
+    if await page.locator('selector for AI settings container').count() > 0:
+        # Example: Enable AI automation
+        await page.locator('selector for AI automation toggle').click()
+
+        # Example: Set AI automation level
+        await page.locator('selector for AI automation level dropdown').select_option('High')
+
+        # Example: Save the settings
+        await page.locator('selector for save AI settings button').click()
+
+        # Optionally wait for a success message or indicator.  Adjust timeout as needed.
+        await page.locator('selector for AI settings saved success message').wait_for(timeout=5000)
+```
+
+Executing Playwright code: ```python
+async def save_workflow(page):
+    """Saves the workflow."""
+    await page.locator("text=Save").click()
+```
+
+Running scenario: Workflow Modification
+Executing Playwright code: ```python
+from playwright.sync_api import sync_playwright
+
+def login(page, username, password):
+    page.goto("your_login_page_url")  # Replace with your login page URL
+    page.locator("#username").fill(username)  # Replace with your username field selector
+    page.locator("#password").fill(password)  # Replace with your password field selector
+    page.locator("#login_button").click()  # Replace with your login button selector
+
+def test_login_valid_credentials():
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        login(page, "your_valid_username", "your_valid_password") # Replace with your valid credentials
+        # Add assertions to verify successful login, e.g., check for a specific element on the home page
+        assert page.locator("#home_page_element").is_visible() # Replace with an element on the home page
+        browser.close()
+
+if __name__ == '__main__':
+    test_login_valid_credentials()
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def navigate_to_workflow_management_page(page: Page):
+    page.goto("/workflow_management")  # Replace "/workflow_management" with the actual URL
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def select_workflow_to_modify(page: Page, workflow_name: str):
+    """Selects a workflow to modify.
+
+    Args:
+        page: The Playwright page object.
+        workflow_name: The name of the workflow to select.
+    """
+    page.locator("text=" + workflow_name).click()
+```
+
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+def update_workflow(page: Page, workflow_name: str = None, workflow_description: str = None, workflow_tasks: list = None):
+    """
+    Updates the workflow name, description, or tasks.
+
+    Args:
+        page: The Playwright Page object.
+        workflow_name: The new workflow name (optional).
+        workflow_description: The new workflow description (optional).
+        workflow_tasks: The new workflow tasks (optional).
+    """
+
+    if workflow_name:
+        page.locator("//input[@placeholder='Workflow Name']").fill(workflow_name)  # Example selector
+    if workflow_description:
+        page.locator("//textarea[@placeholder='Workflow Description']").fill(workflow_description) # Example selector
+    if workflow_tasks:
+        # Example: Assuming tasks are added via a button and text field
+        for task in workflow_tasks:
+            page.locator("//button[text()='Add Task']").click() # Example selector
+            page.locator("//input[@placeholder='Task Name']").fill(task) # Example selector
+            page.locator("//button[text()='Save Task']").click() # Example selector
+    page.locator("//button[text()='Save Workflow']").click() # Example selector
+```
+
+Executing Playwright code: ```python
+    await page.locator('button:has-text("Save")').click()
+```
+
+Running scenario: User Profile Update
+Executing Playwright code: ```python
+from playwright.sync_api import sync_playwright
+
+def login(page, username, password, login_url):
+    page.goto(login_url)
+    page.fill("input[name='username']", username)
+    page.fill("input[name='password']", password)
+    page.click("button[type='submit']")
+    page.wait_for_load_state('networkidle') # Wait for page to load after login
+
+def run(playwright):
+    browser = playwright.chromium.launch()
+    context = browser.new_context()
+    page = context.new_page()
+
+    # Replace with your actual credentials and login URL
+    username = "your_username"
+    password = "your_password"
+    login_url = "your_login_url"
+
+    login(page, username, password, login_url)
+
+    # Add assertions or further actions after successful login
+    print("Login successful!")
+    # Example assertion:
+    # assert page.locator("text=Welcome").is_visible()
+
+    context.close()
+    browser.close()
+
+if __name__ == "__main__":
+    with sync_playwright() as playwright:
+        run(playwright)
+```
+Executing Playwright code: ```python
+from playwright.sync_api import Page
+
+
+def navigate_to_user_profile_page(page: Page):
+    """Navigates to the user profile page."""
+    page.goto("/profile")
+```
+
+Executing Playwright code: ```python
+async def test_update_user_profile(page):
+    # Navigate to profile settings page
+    await page.goto("/profile/settings")
+
+    # Update name
+    await page.fill("#name", "New Name")
+
+    # Update email
+    await page.fill("#email", "newemail@example.com")
+
+    # Update password (if applicable)
+    await page.fill("#currentPassword", "oldPassword")
+    await page.fill("#newPassword", "newPassword")
+    await page.fill("#confirmNewPassword", "newPassword")
+
+    # Click save button
+    await page.click("#saveButton")
+
+    # Verify success message
+    await page.locator("#successMessage").is_visible()
+```
+Error during test automation: GoogleGenerativeAIError: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"},"quotaValue":"15"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"0s"}]
+    at makeRequest (/Users/kianpeadar.fay/ai-test-automation/node_modules/@google/generative-ai/dist/index.js:212:19)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async generateContent (/Users/kianpeadar.fay/ai-test-automation/node_modules/@google/generative-ai/dist/index.js:536:22)
+    at async AITestAutomation.generatePlaywrightCode (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:89:20)
+    at async AITestAutomation.generateAndRunTests (/Users/kianpeadar.fay/ai-test-automation/src/index.ts:79:32)
+    at async main (/Users/kianpeadar.fay/ai-test-automation/src/run-tests.ts:39:9)
+Cleaning up...
